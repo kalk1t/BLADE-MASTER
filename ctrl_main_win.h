@@ -30,10 +30,12 @@ long CALLBACK win_ctrl_function(HWND hwnd, unsigned int message, WPARAM wp, LPAR
 		//HANDLE CHAR_ATTACK = (HANDLE)_beginthreadex(NULL, 0, Thread_char_attack, &cr, 0, NULL);
 
 		HANDLE BCKGR = (HANDLE)_beginthreadex(NULL, 0, Thread_background, &b, 0, NULL);
-		WaitForSingleObject(BCKGR, 1);
+
 		if (BCKGR == NULL) {
 			return 90;
 		}
+
+		WaitForSingleObject(BCKGR, 1);
 		//WaitForSingleObject(Thread, 1);
 		/*if (Thread == NULL) {
 			std::cout << "Error creating a thread" << std::endl;
